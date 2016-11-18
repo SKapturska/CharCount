@@ -7,14 +7,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class TextOperations {
+
     Map<Character, Integer> signs = new HashMap<Character, Integer>();
-    
-    
-    String getFileText(File file){
+
+    String getFileText(File file) {
         String text = "";
         try {
             Scanner sc = new Scanner(file);
-            while(sc.hasNext()){
+            while (sc.hasNext()) {
                 text += sc.nextLine() + "\n";
             }
             sc.close();
@@ -23,17 +23,25 @@ public class TextOperations {
         }
         return text;
     }
-    
-        
-    void countSigns(String text){
-        for(int i = 0; i<text.length();i++){
+
+    void countSigns(String text) {
+        for (int i = 0; i < text.length(); i++) {
             char character = text.charAt(i);
-            if(signs.containsKey(character)){
+            if (signs.containsKey(character)) {
                 signs.put(character, (signs.get(character) + 1));
-            }else{
+            } else {
                 signs.put(character, 1);
             }
         }
     }
-    
+
+    String writeCountedSigns() {
+        String text = "";
+        for (Character key : signs.keySet()) {
+            text += (key + " - " + signs.get(key) + "\n");
+        }
+        
+        return text;
+    }
+
 }

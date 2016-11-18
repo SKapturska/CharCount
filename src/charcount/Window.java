@@ -67,11 +67,16 @@ public class Window extends JFrame implements ActionListener {
             }
 
         } else if (source == statistics) {
+            if(file!=null){
             WindowStatistics stats = new WindowStatistics(text);
             stats.setVisible(true);
+            }
 
         } else if (source == close) {
             taFile.setText("");
+            to.signs.clear();
+            text = "";
+            file = null;
         }
     }
 

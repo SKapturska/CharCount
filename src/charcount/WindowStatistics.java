@@ -9,18 +9,21 @@ import javax.swing.JTextArea;
 
 public class WindowStatistics extends JFrame{
     
+    TextOperations to = new TextOperations();
     JTextArea taCharStatistics;
     JScrollPane scrollPane;
     JLabel lSort;
     JComboBox cbSort; 
     
-    WindowStatistics(){
+    WindowStatistics(String text){
         setTitle("Liczenie znakow");
         setSize(500, 600);
         setLocation(300, 200);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(null);
         setResizable(false);
+        
+        to.countSigns(text);
         
         taCharStatistics = new JTextArea();
         
